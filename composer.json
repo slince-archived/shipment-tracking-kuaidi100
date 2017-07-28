@@ -1,7 +1,7 @@
 {
-    "name": "slince/shipment-tracking-yanwen-express",
-    "keywords": ["shipment",  "燕文", "燕文物流", "yanwen express", "tracking", "tracker", "parcel"],
-    "description": "A flexible and shipment tracking library for Yanwen Express.",
+    "name": "slince/shipment-tracking-kuaidi100",
+    "keywords": ["shipment",  "快递100", "tracking", "tracker", "parcel"],
+    "description": "A flexible and shipment tracking library for Kuaidi100.",
     "license": "MIT",
     "authors": [
         {
@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Slince\\ShipmentTracking\\YanWenExpress\\": "src/"
+            "Slince\\ShipmentTracking\\KuaiDi100\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Slince\\ShipmentTracking\\YanWenExpress\\Tests\\": "tests/"
+            "Slince\\ShipmentTracking\\KuaiDi100\\Tests\\": "tests/"
         }
     }
 }

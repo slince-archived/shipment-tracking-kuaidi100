@@ -3,7 +3,7 @@
  * Slince shipment tracker library
  * @author Tao <taosikai@yeah.net>
  */
-namespace Slince\ShipmentTracking\YanWenExpress;
+namespace Slince\ShipmentTracking\KuaiDi100;
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Psr7\Request;

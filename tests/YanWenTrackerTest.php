@@ -1,19 +1,19 @@
 <?php
-namespace Slince\ShipmentTracking\YanWenExpress\Tests;
+namespace Slince\ShipmentTracking\KuaiDi100\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Slince\ShipmentTracking\Exception\TrackException;
-use Slince\ShipmentTracking\YanWenExpress\YanWenTracker;
+use Slince\ShipmentTracking\KuaiDi100\KuaiDi100Tracker;
 
 class YanWenTrackerTest extends TestCase
 {
     /**
      * @param string $fixture
-     * @return YanWenTracker
+     * @return KuaiDi100Tracker
      */
     protected function getTrackerMock($fixture)
     {
-        $tracker = $this->getMockBuilder(YanWenTracker::class)
+        $tracker = $this->getMockBuilder(KuaiDi100Tracker::class)
             ->setMethods(['sendRequest'])
             ->setConstructorArgs(['foo', 'en'])
             ->getMock();
@@ -24,13 +24,13 @@ class YanWenTrackerTest extends TestCase
 
     public function testSetter()
     {
-        $tracker = new YanWenTracker('foo', 'en');
+        $tracker = new KuaiDi100Tracker('foo', 'sto');
         $this->assertEquals('foo', $tracker->getAppKey());
-        $this->assertEquals('en', $tracker->getCulture());
+        $this->assertEquals('sto', $tracker->getCarrier());
         $tracker->setAppKey('bar');
-        $tracker->setCulture('cn');
+        $tracker->setCarrier('yto');
         $this->assertEquals('bar', $tracker->getAppKey());
-        $this->assertEquals('cn', $tracker->getCulture());
+        $this->assertEquals('yto', $tracker->getCarrier());
     }
 
     public function testTrack()
@@ -38,19 +38,12 @@ class YanWenTrackerTest extends TestCase
         $tracker = $this->getTrackerMock('valid_tracking');
         $shipment = $tracker->track('foo');
         $this->assertTrue($shipment->isDelivered());
-        $this->assertCount(22, $shipment->getEvents());
+        $this->assertCount(11, $shipment->getEvents());
     }
 
     public function testErrorTrack()
     {
         $tracker = $this->getTrackerMock('invalid_tracking');
-        $this->expectException(TrackException::class);
-        $tracker->track('foo');
-    }
-
-    public function testBadResponseTrack()
-    {
-        $tracker = $this->getTrackerMock('error_tracking_number_tracking');
         $this->expectException(TrackException::class);
         $tracker->track('foo');
     }
