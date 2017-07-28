@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 use Slince\ShipmentTracking\Exception\TrackException;
 use Slince\ShipmentTracking\KuaiDi100\KuaiDi100Tracker;
 
-class YanWenTrackerTest extends TestCase
+class KuaiDi100TrackerTest extends TestCase
 {
     /**
      * @param string $fixture
@@ -38,7 +38,7 @@ class YanWenTrackerTest extends TestCase
         $tracker = $this->getTrackerMock('valid_tracking');
         $shipment = $tracker->track('foo');
         $this->assertTrue($shipment->isDelivered());
-        $this->assertCount(11, $shipment->getEvents());
+        $this->assertCount(9, $shipment->getEvents());
     }
 
     public function testErrorTrack()

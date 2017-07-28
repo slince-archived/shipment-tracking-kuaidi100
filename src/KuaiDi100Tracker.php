@@ -139,6 +139,7 @@ class KuaiDi100Tracker extends HttpAwareTracker
     {
         $events = array_map(function($item) {
             return ShipmentEvent::fromArray([
+                'location' => $item['location'],
                 'description' => $item['context'],
                 'date' => $item['time'],
             ]);
