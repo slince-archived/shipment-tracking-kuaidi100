@@ -19,7 +19,7 @@ $ composer require slince/shipment-tracking-kuaidi100
 
 ```php
 
-$tracker = new Slince\ShipmentTracking\KuaiDi100\KuaiDi100Tracker(APPKEY, 'shunfeng'); //承运商名称并不是标准的承运商代码，具体的列表请到kuaidi100.com查看
+$tracker = new Slince\ShipmentTracking\KuaiDi100\KuaiDi100Tracker(APPKEY, 'shunfeng'); //承运商名称并不是标准的承运商代码，实际承运商代码请到kuaidi100.com查看
 
 try {
    $shipment = $tracker->track('CNAQV100168101');
